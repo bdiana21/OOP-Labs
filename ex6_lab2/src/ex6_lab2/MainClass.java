@@ -12,7 +12,6 @@ public class MainClass {
 				 //s=s*2;
 				s= s.multiply(BigInteger.valueOf(2));
 			}
-			//System.out.println(s);
 			total=total.add(s);
 			//total=total+s;
 			
