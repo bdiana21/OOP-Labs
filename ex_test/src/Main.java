@@ -44,6 +44,6 @@ public class Main {
         System.out.print("\n");
     }
         Scanner input=new Scanner(System.in);
-        int value= input.nextInt();
+        String value= input.nextLine();
 
-}
+}}
