@@ -30,7 +30,9 @@ public class Economic {
     @FXML
     private Button BGRUDPECO;
     @FXML
-    private Button BGRUVSE;
+    private Button BOFCVSE;
+    @FXML
+    private Button BGRUMDE;
     @FXML
     private Button inapoiMeniuButton;
 
@@ -83,7 +85,7 @@ public class Economic {
         boolean isBGRUPressed = BGRU.isArmed() || BGRU.isPressed();
 
         BGRUDPECO.setVisible(isBGRUPressed);
-        BGRUVSE.setVisible(isBGRUPressed);
+        BGRUMDE.setVisible(isBGRUPressed);
         BOFC.setVisible(!isBGRUPressed);
     }
 
@@ -102,6 +104,7 @@ public class Economic {
         BOFCCSMECO.setVisible(isBOFCPressed);
         BOFCCSOECO.setVisible(isBOFCPressed);
         BOFCPPECO1.setVisible(isBOFCPressed);
+        BOFCVSE.setVisible(isBOFCPressed);
         BGRU.setVisible(!isBOFCPressed);
     }
 
@@ -159,6 +162,28 @@ public class Economic {
             Stage stageDate= new Stage();
             stageDate.setTitle("Salarii");
             stageDate.setScene(scene);
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void BGRUMDEOnAction(ActionEvent e)throws SQLException{
+        fereastraModificaDate(id);
+    }
+
+    public void fereastraModificaDate(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("modificadate.fxml"));
+            Scene scene = new Scene(date.load(), 440, 400);
+            ModificaDate d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Modifica Date");
+            stageDate.setScene(scene);
+
             stageDate.show();
 
         }catch(Exception e){

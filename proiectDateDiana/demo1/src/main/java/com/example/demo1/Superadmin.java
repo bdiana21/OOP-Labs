@@ -64,9 +64,9 @@ public class Superadmin
     }
     public void BDPSUPADMINonAction(ActionEvent e)
     {
-        hideButtonBDPSUPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+      //  hideButtonBDPSUPADMIN();
+      //  inapoiMeniuButton.setVisible(true);
+       // inapoiButton.setVisible(false);
         fereastraDatePersonale(id);
     }
 
@@ -82,9 +82,9 @@ public class Superadmin
 
     public void BMDPSUPADMINonAction(ActionEvent e)
     {
-        hideButtonBMDPSUPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+       // hideButtonBMDPSUPADMIN();
+       // inapoiMeniuButton.setVisible(true);
+        //inapoiButton.setVisible(false);
         fereastraModificaDate(id);
     }
 

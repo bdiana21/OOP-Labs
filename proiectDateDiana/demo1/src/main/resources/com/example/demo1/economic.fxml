@@ -12,22 +12,22 @@
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="BOFCVSAECO" layoutX="38.0" layoutY="154.0" mnemonicParsing="false" onAction="#BOFCVSAECOOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Vizualizare salarii angajati" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BOFCVSAECO" layoutX="38.0" layoutY="198.0" mnemonicParsing="false" onAction="#BOFCVSAECOOnAction" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Vizualizare salarii angajati" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="BOFCCSMECO" layoutX="38.0" layoutY="213.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Calcul salarii medici" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BOFCCSMECO" layoutX="38.0" layoutY="243.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Calcul salarii medici" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="BOFCCSOECO" layoutX="38.0" layoutY="279.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Calcul salariu/ora" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BOFCCSOECO" layoutX="38.0" layoutY="287.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Calcul salariu/ora" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="BOFCPPECO1" layoutX="38.0" layoutY="344.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Profit Policlinica" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BOFCPPECO1" layoutX="38.0" layoutY="328.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Profit Policlinica" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
@@ -61,10 +61,15 @@
                 <Font name="Bookman Old Style Bold" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="BGRUVSE" layoutX="339.0" layoutY="213.0" mnemonicParsing="false" onAction="#BGRUVSEOnAction" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Vizualizare Salariu" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BOFCVSE" layoutX="38.0" layoutY="154.0" mnemonicParsing="false" onAction="#BGRUVSEOnAction" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Vizualizare Salariu" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
+      <Button fx:id="BGRUMDE" layoutX="339.0" layoutY="198.0" mnemonicParsing="false" onAction="#BGRUMDEOnAction" prefHeight="29.0" prefWidth="214.0" style="-fx-background-color: #498fba;" text="Modificare date" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

@@ -17,13 +17,14 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class VizualizareProgramari
-{
+public class VizualizareProgramariMedici {
+
+
     @FXML
     private Button inapoiProgramari;
 
     @FXML
-    private TableView<DateProgramari> tabelProgramari;
+    private TableView<DateProgramari> tabelProgramariMedici;
 
     @FXML
     private TableColumn<DateProgramari, String> tabelNume;
@@ -48,49 +49,50 @@ public class VizualizareProgramari
     private int id;
     public void setID(int id) throws SQLException {
         this.id=id;
-        dateTabelProgramari(id);
+        dateTabelProgramariMedici(id);
     }
 
     ObservableList<DateProgramari> listP= FXCollections.observableArrayList();
 
-    public void dateTabelProgramari(int id) throws SQLException {
+    public void dateTabelProgramariMedici(int id) throws SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
         String getData = "SELECT u.nume, u.prenume, p.Data_Programare, p.Ora_Programare, p.ID_Medic\n" +
                 "FROM utilizatori u\n" +
-                "JOIN programari p ON u.ID_Utilizator = p.ID_Pacient\n" +
+                "JOIN programari p ON u.ID_Utilizator = p.ID_Medic\n" +
                 "WHERE u.ID_Utilizator = ?;\n";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
-            preparedStatement.setInt(1, id); // Setăm valoarea pentru parametrul ID_Utilizator
+            for(int i=1; i<150; i++) {
+                preparedStatement.setInt(1, i); // Setăm valoarea pentru parametrul ID_Utilizator
 
-            try (ResultSet result2 = preparedStatement.executeQuery()) {
+                try (ResultSet result2 = preparedStatement.executeQuery()) {
 
-                while (result2.next())
-                {
-                    String userNume = result2.getString("Nume");
-                    String userPrenume = result2.getString("Prenume");
-                    String userData = result2.getString("Data_Programare");
-                    String userOra = result2.getString("Ora_Programare");
-                    String userMedic = result2.getString("ID_Medic");
-                    listP.add(new DateProgramari(userNume, userPrenume, userData, userOra, userMedic));
+                    while (result2.next()) {
+                        String userNume = result2.getString("Nume");
+                        String userPrenume = result2.getString("Prenume");
+                        String userData = result2.getString("Data_Programare");
+                        String userOra = result2.getString("Ora_Programare");
+                        String userMedic = result2.getString("ID_Medic");
+                        listP.add(new DateProgramari(userNume, userPrenume, userData, userOra, userMedic));
+                    }
+
+                    tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
+                    tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
+                    data.setCellValueFactory(new PropertyValueFactory<>("data"));
+                    ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
+                    medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
+
+
+                    tabelProgramariMedici.setItems(listP);
+
+                } catch (SQLException e) {
+                    Logger.getLogger(DateProgramari.class.getName()).log(Level.SEVERE, null, e);
+                    e.printStackTrace();
                 }
 
-                tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
-                tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
-                data.setCellValueFactory(new PropertyValueFactory<>("data"));
-                ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
-                medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
-
-
-                tabelProgramari.setItems(listP);
-
-            } catch (SQLException e) {
-                Logger.getLogger(DateProgramari.class.getName()).log(Level.SEVERE, null, e);
-                e.printStackTrace();
             }
-
         }
     }
 }

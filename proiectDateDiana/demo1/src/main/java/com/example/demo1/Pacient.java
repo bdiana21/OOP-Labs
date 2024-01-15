@@ -61,11 +61,10 @@ public class Pacient {
     }
     public void BMDPonAction(ActionEvent e)
     {
-        hideButtonBMDP();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+      //  hideButtonBMDP();
+      //  inapoiMeniuButton.setVisible(true);
+    //    inapoiButton.setVisible(false);
         fereastraModificaDate(id);
-        initialize();
     }
 
     private void hideButtonBMDP()
@@ -78,9 +77,9 @@ public class Pacient {
     }
     public void BDPPonAction(ActionEvent e)
     {
-        hideButtonBMDP();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+     //   hideButtonBMDP();
+      //  inapoiMeniuButton.setVisible(true);
+       // inapoiButton.setVisible(false);
         fereastraDatePersonale(id);
     }
 
@@ -95,9 +94,9 @@ public class Pacient {
 
     public void BPPonAction(ActionEvent e)
     {
-        hideButtonBPP();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+        //hideButtonBPP();
+        //inapoiMeniuButton.setVisible(true);
+        //inapoiButton.setVisible(false);
         fereastraProgramari(id);
     }
 
@@ -173,7 +172,6 @@ public class Pacient {
             Stage stageDate= new Stage();
             stageDate.setTitle("Vizualizare Programari");
             stageDate.setScene(scene);
-
             stageDate.show();
 
         }catch(Exception e){

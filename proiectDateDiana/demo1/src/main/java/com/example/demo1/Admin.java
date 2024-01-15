@@ -68,9 +68,9 @@ public class Admin {
     }
     public void BDPADMINonAction(ActionEvent e)
     {
-        hideButtonBDPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+       // hideButtonBDPADMIN();
+       // inapoiMeniuButton.setVisible(true);
+       // inapoiButton.setVisible(false);
         fereastraDatePersonale(id);
     }
 
@@ -86,9 +86,9 @@ public class Admin {
 
     public void BMDPADMINonAction(ActionEvent e)
     {
-        hideButtonBMDPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+       // hideButtonBMDPADMIN();
+       // inapoiMeniuButton.setVisible(true);
+        //inapoiButton.setVisible(false);
         fereastraModificaDate(id);
     }
 

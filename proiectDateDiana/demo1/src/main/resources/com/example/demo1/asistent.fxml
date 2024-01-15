@@ -22,12 +22,7 @@
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="BGAOVPA" layoutX="212.0" layoutY="273.0" mnemonicParsing="false" onAction="#BGAOVPAOnAction" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #498fba;" text="Vizualizare Programari" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
-         <font>
-            <Font name="Bookman Old Style Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="BGAOCRA" layoutX="367.0" layoutY="273.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #498fba;" text="Completare Raport" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+      <Button fx:id="BGAOCRA" layoutX="212.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: #498fba;" text="Completare Raport" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>

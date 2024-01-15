@@ -25,16 +25,14 @@ public class Asistent  {
     private Button BGRUDPA;
     @FXML
     private Button BGRUMDPA;
-    @FXML
-    private Button BGRUCA;
+
     @FXML
     private Button BOFC;
     @FXML
     private Button BOFCSA;
     @FXML
     private Button BGAO;
-    @FXML
-    private Button BGAOVPA;
+
     @FXML
     private Button BGAOCRA;
     @FXML
@@ -53,7 +51,7 @@ public class Asistent  {
     public void setUserData(ResultSet result) throws SQLException {
         userNume = result.getString("Nume");
         userPrenume = result.getString("Prenume");
-        numeLabel.setText("User: " +userNume+" "+userPrenume);
+        numeLabel.setText(userNume+" "+userPrenume);
         setId(result.getInt("ID_Utilizator"));
     }
     public void BGRUDPAOnAction(ActionEvent e)throws SQLException{
@@ -129,7 +127,6 @@ public class Asistent  {
     {
         boolean isBGAOPressed = BGAO.isArmed() || BGAO.isPressed();
 
-        BGAOVPA.setVisible(isBGAOPressed);
         BGAOCRA.setVisible(isBGAOPressed);
         BGRU.setVisible(!isBGAOPressed);
         BOFC.setVisible(!isBGAOPressed);
@@ -193,26 +190,5 @@ public class Asistent  {
         }
     }
 
-    public void BGAOVPAOnAction(ActionEvent e)throws SQLException{
-        fereastraProgramari(id);
-    }
-
-    public void fereastraProgramari(int id){
-        try{
-            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("vizualizareprogramari.fxml"));
-            Scene scene = new Scene(date.load(), 600, 350);
-            VizualizareProgramari d = date.getController();
-            d.setID(id);
-            Stage stageDate= new Stage();
-            stageDate.setTitle("Vizualizare Programari");
-            stageDate.setScene(scene);
-
-            stageDate.show();
-
-        }catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
 
 }

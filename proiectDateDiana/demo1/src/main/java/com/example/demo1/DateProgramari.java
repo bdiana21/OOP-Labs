@@ -2,15 +2,14 @@ package com.example.demo1;
 
 public class DateProgramari
 {
-    String nume, prenume, nrTelefon, medic, dataProgramarii, ora;
+    String nume, prenume, medic, data, ora;
 
-    public DateProgramari(String nume, String prenume, String nrTelefon, String medic, String dataProgramarii) {
+    public DateProgramari(String nume, String prenume, String data, String ora, String medic) {
         this.nume = nume;
         this.prenume = prenume;
-        this.nrTelefon = nrTelefon;
-        this.medic = medic;
-        this.dataProgramarii = dataProgramarii;
+        this.data = data;
         this.ora = ora;
+        this.medic = medic;
     }
 
     public void setNume(String nume) {
@@ -20,22 +19,16 @@ public class DateProgramari
     public void setPrenume(String prenume) {
         this.prenume = prenume;
     }
-
-    public void setNrTelefon(String nrTelefon) {
-        this.nrTelefon = nrTelefon;
+    public void setData(String data) {
+        this.data = data;
     }
-
+    public void setOra(String ora) {
+        this.ora = ora;
+    }
     public void setMedic(String medic) {
         this.medic = medic;
     }
 
-    public void setDataProgramarii(String dataProgramarii) {
-        this.dataProgramarii = dataProgramarii;
-    }
-
-    public void setOra(String ora) {
-        this.ora = ora;
-    }
 
     public String getNume() {
         return nume;
@@ -45,20 +38,17 @@ public class DateProgramari
         return prenume;
     }
 
-    public String getNrTelefon() {
-        return nrTelefon;
+    public String getData() {
+        return data;
+    }
+
+    public String getOra() {
+        return ora;
     }
 
     public String getMedic() {
         return medic;
     }
 
-    public String getDataProgramarii() {
-        return dataProgramarii;
-    }
-
-    public String getOra() {
-        return ora;
-    }
 
 }
