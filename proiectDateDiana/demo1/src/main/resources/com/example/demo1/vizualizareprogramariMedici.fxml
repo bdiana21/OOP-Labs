@@ -9,15 +9,6 @@
 
 <AnchorPane prefHeight="254.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.VizualizareProgramariMedici">
     <children>
-        <TableView fx:id="tabelProgramariMedici" layoutX="66.0" layoutY="99.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="466.0">
-            <columns>
-                <TableColumn fx:id="tabelNume" prefWidth="98.39996337890625" style="-fx-background-color: #498fba;" text="NUME" />
-                <TableColumn fx:id="tabelPrenume" prefWidth="96.0" style="-fx-background-color: #498fba;" text="PRENUME" />
-                <TableColumn fx:id="data" maxWidth="7000.0" minWidth="0.0" prefWidth="88.79998779296875" style="-fx-background-color: #498fba;" text="DATA" />
-                <TableColumn fx:id="ora" maxWidth="7000.0" minWidth="0.0" prefWidth="86.4000244140625" style="-fx-background-color: #498fba;" text="ORA" />
-                <TableColumn fx:id="medic" maxWidth="7000.0" minWidth="0.0" prefWidth="96.800048828125" style="-fx-background-color: #498fba;" text="ID_MEDIC" />
-            </columns>
-        </TableView>
         <Text fill="#0e64a1" layoutX="123.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROGRAMARI">
             <font>
                 <Font name="Bookman Old Style Bold" size="48.0" />
@@ -28,5 +19,13 @@
                 <Font name="Bookman Old Style Bold" size="20.0" />
             </font>
         </Button>
+      <TableView fx:id="tabelProgramariMedici" layoutX="5.0" layoutY="103.0" prefHeight="218.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="nume" prefWidth="129.59993886947632" style="-fx-background-color: #498fba;" text="NUME" />
+            <TableColumn fx:id="prenume" minWidth="0.0" prefWidth="160.800048828125" style="-fx-background-color: #498fba;" text="PRENUME" />
+            <TableColumn fx:id="data" minWidth="0.0" prefWidth="232.00003051757812" style="-fx-background-color: #498fba;" text="DATA" />
+            <TableColumn fx:id="ora" minWidth="0.0" prefWidth="83.20001220703125" style="-fx-background-color: #498fba;" text="ORA" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>

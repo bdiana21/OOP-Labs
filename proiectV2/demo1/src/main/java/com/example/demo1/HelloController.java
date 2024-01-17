@@ -130,8 +130,8 @@ public class HelloController {
             Stage stagePacient=new Stage();
             stagePacient.setTitle("Pacient");
             stagePacient.setScene(scene);
-            Pacient p = pacient.getController();
-            p.setUserData(result);
+            Pacient pac = pacient.getController();
+            pac.setUserData(result);
             stagePacient.show();
 
         }catch(Exception e){

@@ -115,6 +115,7 @@ public class Pacient {
         hideButtonBRMP();
         inapoiMeniuButton.setVisible(true);
         inapoiButton.setVisible(false);
+        fereastraRapoartePacient(id);
     }
 
     private void hideButtonBRMP()
@@ -171,6 +172,23 @@ public class Pacient {
             d.setID(id);
             Stage stageDate= new Stage();
             stageDate.setTitle("Vizualizare Programari");
+            stageDate.setScene(scene);
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void fereastraRapoartePacient(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("raportPacient.fxml"));
+            Scene scene = new Scene(date.load(), 600, 400);
+            RaportPacient d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Vizualizare Raport");
             stageDate.setScene(scene);
             stageDate.show();
 

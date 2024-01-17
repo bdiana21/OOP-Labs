@@ -184,4 +184,46 @@ public class Receptioner {
         }
     }
 
+    public void BGAOCPROnAction(ActionEvent e)throws SQLException{
+        fereastraProgramareNoua(id);
+    }
+
+    public void fereastraProgramareNoua(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("programareNoua.fxml"));
+            Scene scene = new Scene(date.load(), 440, 400);
+            ProgramareNoua d = date.getController();
+            d.setId(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Programare noua");
+            stageDate.setScene(scene);
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void BGAOEBFROnAction(ActionEvent e)throws SQLException{
+        fereastraEmiteBon(id);
+    }
+
+    public void fereastraEmiteBon(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("bon.fxml"));
+            Scene scene = new Scene(date.load(), 440, 400);
+            CompleteazaBon d = date.getController();
+            d.setId(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Emitere Bon");
+            stageDate.setScene(scene);
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
 }

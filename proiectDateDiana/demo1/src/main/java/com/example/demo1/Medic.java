@@ -198,9 +198,9 @@ public class Medic {
 
     public void fereastraProgramari(int id){
         try{
-            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("vizualizareprogramari.fxml"));
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("vizualizareprogramariMedici.fxml"));
             Scene scene = new Scene(date.load(), 600, 350);
-            VizualizareProgramari d = date.getController();
+            VizualizareProgramariMedici d = date.getController();
             d.setID(id);
             Stage stageDate= new Stage();
             stageDate.setTitle("Vizualizare Programari");
@@ -213,7 +213,26 @@ public class Medic {
             e.getCause();
         }
     }
+    public void BGAOGRMMOnAction(ActionEvent e)throws SQLException{
+        fereastraRapoarte(id);
+    }
 
+    public void fereastraRapoarte(int id) {
+        try {
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("raportMedici.fxml"));
+            Scene scene = new Scene(date.load(), 600, 400);
+            VizualizareRapoarteMedic d = date.getController();
+            d.setID(id);
+            Stage stageDate = new Stage();
+            stageDate.setTitle("Rapoarte Medicale");
+            stageDate.setScene(scene);
 
+            stageDate.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
 }

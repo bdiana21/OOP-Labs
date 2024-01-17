@@ -15,6 +15,7 @@ public class Pacient {
 
     @FXML
     private Button inapoiButton;
+    @FXML
     private Button BMDP;
     @FXML
     private Button BDPP;

@@ -26,6 +26,13 @@ public class HelloController {
     private TextField cnpTextField;
     @FXML
     private PasswordField parolaPasswordField;
+    @FXML
+    private Label errorLabel;
+
+    public Label getErrorLabel() {
+        return errorLabel;
+    }
+
 
 
     public void loginButtonOnAction(ActionEvent e){
@@ -45,45 +52,53 @@ public class HelloController {
     public void validateLogin() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        String verifyLogin = "select ID_Utilizator,Nume,Prenume,rol_user from utilizatori where CNP='"+cnpTextField.getText() + "' and parola='" + parolaPasswordField.getText()+ "'";
+        String verifyLogin = "SELECT ID_Utilizator, Nume, Prenume, Parola, rol_user FROM utilizatori WHERE CNP='"
+                + cnpTextField.getText() + "' AND parola='" + parolaPasswordField.getText() + "'";
         try {
             Statement statement = connectDB.createStatement();
             ResultSet result = statement.executeQuery(verifyLogin);
 
+            boolean userAuthenticated = false;
+
             while (result.next()) {
                 String userRol = result.getString("rol_user");
-                if (userRol.equals("asistent")) {
-                    fereastraAsistent(result);
+                if (parolaPasswordField.getText().equals(result.getString("Parola"))) {
+                    userAuthenticated = true;
+                    switch (userRol) {
+                        case "asistent":
+                            fereastraAsistent(result);
+                            break;
+                        case "medic":
+                            fereastraMedic(result);
+                            break;
+                        case "hr":
+                            fereastraHr(result);
+                            break;
+                        case "receptioner":
+                            fereastraReceptioner(result);
+                            break;
+                        case "admin":
+                            fereastraAdmin(result);
+                            break;
+                        case "superadmin":
+                            fereastraSuperadmin(result);
+                            break;
+                        case "economic":
+                            fereastraEconomic(result);
+                            break;
+                        case "pacient":
+                            fereastraPacient(result);
+                            break;
+                        default:
+                            errorLabel.setText("Tip de utilizator necunoscut: " + userRol);
+                    }
+                } else {
+                    errorLabel.setText("Parolă incorectă!");
+                }
+            }
 
-                }
-                else if (userRol.equals("medic")) {
-                    fereastraMedic(result);
-                }
-                else if (userRol.equals("hr")) {
-                    fereastraHr(result);
-                }
-                else if (userRol.equals("receptioner")) {
-                    fereastraReceptioner(result);
-
-                }
-                else if (userRol.equals("admin")) {
-                    fereastraAdmin(result);
-                }
-                else if (userRol.equals("superadmin")) {
-                    fereastraSuperadmin(result);
-                }
-                else if (userRol.equals("economic")) {
-                    fereastraEconomic(result);
-
-                }
-                else if (userRol.equals("pacient")) {
-                    fereastraPacient(result);
-
-                }
-                else {
-                    loginMessageLabel.setText("autentificare nereusita");
-
-                }
+            if (!userAuthenticated) {
+                errorLabel.setText("CNP sau parolă incorecte!");
             }
         } catch (Exception e) {
             e.printStackTrace();

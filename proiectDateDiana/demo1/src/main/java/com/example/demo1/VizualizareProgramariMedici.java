@@ -27,10 +27,10 @@ public class VizualizareProgramariMedici {
     private TableView<DateProgramari> tabelProgramariMedici;
 
     @FXML
-    private TableColumn<DateProgramari, String> tabelNume;
+    private TableColumn<DateProgramari, String> nume;
 
     @FXML
-    private TableColumn<DateProgramari, String> tabelPrenume;
+    private TableColumn<DateProgramari, String> prenume;
 
     @FXML
     private TableColumn<DateProgramari, String> data;
@@ -38,8 +38,7 @@ public class VizualizareProgramariMedici {
     @FXML
     private TableColumn<DateProgramari, String> ora;
 
-    @FXML
-    private TableColumn<DateProgramari, String> medic;
+
 
     public void cancelButtonOnAction(ActionEvent e){
         Stage stage= (Stage) inapoiProgramari.getScene().getWindow();
@@ -58,14 +57,12 @@ public class VizualizareProgramariMedici {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "SELECT u.nume, u.prenume, p.Data_Programare, p.Ora_Programare, p.ID_Medic\n" +
-                "FROM utilizatori u\n" +
-                "JOIN programari p ON u.ID_Utilizator = p.ID_Medic\n" +
-                "WHERE u.ID_Utilizator = ?;\n";
+        String getData = "SELECT u_pacient.nume, u_pacient.prenume , p.Data_Programare, p.Ora_Programare FROM utilizatori u_medic JOIN programari p ON u_medic.ID_Utilizator = p.ID_Medic JOIN utilizatori u_pacient ON p.ID_Pacient = u_pacient.ID_Utilizator WHERE u_medic.ID_Utilizator = ?";
+
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
-            for(int i=1; i<150; i++) {
-                preparedStatement.setInt(1, i); // Setăm valoarea pentru parametrul ID_Utilizator
+           // for(int i=1; i<150; i++) {
+                preparedStatement.setInt(1, id); // Setăm valoarea pentru parametrul ID_Utilizator
 
                 try (ResultSet result2 = preparedStatement.executeQuery()) {
 
@@ -74,15 +71,13 @@ public class VizualizareProgramariMedici {
                         String userPrenume = result2.getString("Prenume");
                         String userData = result2.getString("Data_Programare");
                         String userOra = result2.getString("Ora_Programare");
-                        String userMedic = result2.getString("ID_Medic");
-                        listP.add(new DateProgramari(userNume, userPrenume, userData, userOra, userMedic));
+                        listP.add(new DateProgramari(userNume, userPrenume, userData, userOra));
                     }
 
-                    tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
-                    tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
+                    nume.setCellValueFactory(new PropertyValueFactory<>("nume"));
+                    prenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
                     data.setCellValueFactory(new PropertyValueFactory<>("data"));
                     ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
-                    medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
 
 
                     tabelProgramariMedici.setItems(listP);
@@ -93,6 +88,6 @@ public class VizualizareProgramariMedici {
                 }
 
             }
-        }
+       // }
     }
 }

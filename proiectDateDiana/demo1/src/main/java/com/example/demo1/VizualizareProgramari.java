@@ -74,14 +74,14 @@ public class VizualizareProgramari
                     String userData = result2.getString("Data_Programare");
                     String userOra = result2.getString("Ora_Programare");
                     String userMedic = result2.getString("ID_Medic");
-                    listP.add(new DateProgramari(userNume, userPrenume, userData, userOra, userMedic));
+                    listP.add(new DateProgramari(userNume, userPrenume, userData, userOra));
                 }
 
                 tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
                 tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
                 data.setCellValueFactory(new PropertyValueFactory<>("data"));
                 ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
-                medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
+               // medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
 
 
                 tabelProgramari.setItems(listP);

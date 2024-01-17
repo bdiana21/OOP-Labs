@@ -65,6 +65,7 @@
                   <Font name="Bookman Old Style" size="20.0" />
                </font>
             </Label>
+            <Label fx:id="errorLabel" layoutX="100.0" layoutY="20.0" textFill="red" />
          </children>
       </AnchorPane>
    </center>

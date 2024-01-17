@@ -2,14 +2,14 @@ package com.example.demo1;
 
 public class DateProgramari
 {
-    String nume, prenume, medic, data, ora;
+    String nume, prenume, data, ora;
 
-    public DateProgramari(String nume, String prenume, String data, String ora, String medic) {
+    public DateProgramari(String nume, String prenume, String data, String ora) {
         this.nume = nume;
         this.prenume = prenume;
         this.data = data;
         this.ora = ora;
-        this.medic = medic;
+
     }
 
     public void setNume(String nume) {
@@ -25,9 +25,7 @@ public class DateProgramari
     public void setOra(String ora) {
         this.ora = ora;
     }
-    public void setMedic(String medic) {
-        this.medic = medic;
-    }
+
 
 
     public String getNume() {
@@ -46,9 +44,7 @@ public class DateProgramari
         return ora;
     }
 
-    public String getMedic() {
-        return medic;
-    }
+
 
 
 }

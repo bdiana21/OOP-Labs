@@ -189,6 +189,25 @@ public class Asistent  {
             e.getCause();
         }
     }
+    public void BGAOCRAOnAction(ActionEvent e)throws SQLException{
+        fereastraRaport(id);
+    }
 
+    public void fereastraRaport(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("completareRaport.fxml"));
+            Scene scene = new Scene(date.load(), 480, 400);
+            CompletareRaport d = date.getController();
+            d.setId(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Completeaza Raport");
+            stageDate.setScene(scene);
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
 }

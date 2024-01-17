@@ -12,17 +12,17 @@
             <Font name="Bookman Old Style Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="BMDSADMIN" layoutX="240.0" layoutY="191.0" mnemonicParsing="false" onAction="#BMDSADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="BMDSADMIN" layoutX="240.0" layoutY="230.0" mnemonicParsing="false" onAction="#BMDSADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="BSDSADMIN" layoutX="240.0" layoutY="290.0" mnemonicParsing="false" onAction="#BSDSADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Stergere Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="BSDSADMIN" layoutX="240.0" layoutY="317.0" mnemonicParsing="false" onAction="#BSDSADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Stergere Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="BADSADMIN" layoutX="240.0" layoutY="88.0" mnemonicParsing="false" onAction="#BADSADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Adaugare Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="BADSADMIN" layoutX="240.0" layoutY="149.0" mnemonicParsing="false" onAction="#BADSADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Adaugare Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -51,5 +51,10 @@
             </Label>
          </children>
       </AnchorPane>
+      <Button fx:id="BVDSAdmin" layoutX="240.0" layoutY="61.0" mnemonicParsing="false" onAction="#BVDSAdminOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Vizualizare Date Sistem" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

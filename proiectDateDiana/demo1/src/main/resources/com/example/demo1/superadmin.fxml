@@ -12,7 +12,7 @@
                 <Font name="Bookman Old Style Bold" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="BMDSSUPADMIN" layoutX="254.0" layoutY="190.0" mnemonicParsing="false" onAction="#BMDSSUPADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BMDSSUPADMIN" layoutX="254.0" layoutY="211.0" mnemonicParsing="false" onAction="#BMDSSUPADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
@@ -22,7 +22,7 @@
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="BADSSUPADMIN" layoutX="254.0" layoutY="98.0" mnemonicParsing="false" onAction="#BADSSUPADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Adaugare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+        <Button fx:id="BADSSUPADMIN" layoutX="254.0" layoutY="140.0" mnemonicParsing="false" onAction="#BADSSUPADMINOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Adaugare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
             <font>
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
@@ -51,5 +51,10 @@
               </Label>
          </children>
       </AnchorPane>
+      <Button fx:id="BVDSSupAdmin" layoutX="254.0" layoutY="68.0" mnemonicParsing="false" onAction="#BVDSSupAdminOnAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Vizualizare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

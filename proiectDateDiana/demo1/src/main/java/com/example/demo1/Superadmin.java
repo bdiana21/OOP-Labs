@@ -26,6 +26,8 @@ public class Superadmin
     @FXML
     private Button BSDSSUPADMIN;
     @FXML
+    private Button BVDSSupAdmin;
+    @FXML
     private Button inapoiMeniuButton;
     @FXML
     public Label numeLabel;
@@ -98,12 +100,6 @@ public class Superadmin
         BSDSSUPADMIN.setVisible(!isBMDPSUPADMINPressed);
     }
 
-    public void BADSSUPADMINonAction(ActionEvent e)
-    {
-        hideButtonBADSSUPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
-    }
 
     private void hideButtonBADSSUPADMIN()
     {
@@ -148,6 +144,68 @@ public class Superadmin
         BADSSUPADMIN.setVisible(!isBSDSSUPADMINPressed);
         BMDSSUPADMIN.setVisible(!isBSDSSUPADMINPressed);
     }
+
+    public void BADSSUPADMINOnAction(ActionEvent e)throws SQLException{
+        fereastraAdaugaDateSistem1(id);
+        fereastraAdaugaDateSistem2(id);
+        fereastraAdaugaDateSistem3(id);
+    }
+
+    public void BVDSSupAdminOnAction(ActionEvent e)throws SQLException{
+        fereastraDatePersonaleAngajati(id);
+    }
+    public void fereastraAdaugaDateSistem1(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("adaugadatesistem.fxml"));
+            Scene scene = new Scene(date.load(), 480, 580);
+            AdaugaDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Adauga Hr, Economic, Receptioner, Admin");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void fereastraAdaugaDateSistem2(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("adaugadatesistemMedic.fxml"));
+            Scene scene = new Scene(date.load(), 700, 580);
+            AdaugaDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Adauga Medic ");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    public void fereastraAdaugaDateSistem3(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("adaugadatesistemAsistent.fxml"));
+            Scene scene = new Scene(date.load(), 700, 580);
+            AdaugaDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Adauga Asistent Medical ");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
     public void fereastraDatePersonale(int id){
         try{
             FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("datePersonale.fxml"));
@@ -184,32 +242,9 @@ public class Superadmin
         }
     }
 
-    public void BADSSUPADMINOnAction(ActionEvent e)throws SQLException{
-        fereastraAdaugaDateSistem(id);
-        fereastraDatePersonaleAngajati(id);
-    }
-
-    public void fereastraAdaugaDateSistem(int id){
-        try{
-            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("adaugadatesistem.fxml"));
-            Scene scene = new Scene(date.load(), 480, 580);
-            AdaugaDateSistem d = date.getController();
-            d.setID(id);
-            Stage stageDate= new Stage();
-            stageDate.setTitle("Adauga Date Sistem ");
-            stageDate.setScene(scene);
-
-            stageDate.show();
-
-        }catch(Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
 
     public void BMDSSUPADMINOnAction(ActionEvent e)throws SQLException{
         fereastraModificaDateSistem(id);
-        fereastraDatePersonaleAngajati(id);
     }
 
     public void fereastraModificaDateSistem(int id){
