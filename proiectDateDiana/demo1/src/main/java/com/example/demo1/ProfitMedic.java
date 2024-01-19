@@ -9,13 +9,12 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
-public class Salariu {
+public class ProfitMedic {
     @FXML
-    private Button anuleazaSA;
-
+    private Button anuleaza;
 
     @FXML
-    private Label salariu;
+    private Label profitMedic;
 
     private int id;
 
@@ -23,23 +22,23 @@ public class Salariu {
         this.id = id;
     }
 
-    public void setUserSalariu(int id) throws SQLException
+    public void setUserProfitMedic(int id) throws SQLException
     {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String Salariu = "call SelectSalariuAngajat(?)";
+        String Profit = "CALL CalculProfitMedic(?)";
+        try (PreparedStatement preparedStatement = connectDB.prepareStatement(Profit)) {
 
-        try (PreparedStatement preparedStatement = connectDB.prepareStatement(Salariu)) {
             preparedStatement.setInt(1, id);
 
-            String userSalariu = null;
+            String userProfit = null;
             try (ResultSet result2 = preparedStatement.executeQuery()) {
 
                 while (result2.next()) {
-                    userSalariu = result2.getString("Salariu");
+                    userProfit = result2.getString("ProfitMedic");
                 }
-                salariu.setText(" " + userSalariu );
+                profitMedic.setText(" " + userProfit );
             }
         }
         catch (Exception e) {
@@ -51,9 +50,9 @@ public class Salariu {
     public void setID(int id) {
     }
 
-    public void anuleazaSAOnAction(ActionEvent e)
+    public void anuleazaOnAction(ActionEvent e)
     {
-        Stage stage= (Stage)anuleazaSA.getScene().getWindow();
+        Stage stage= (Stage)anuleaza.getScene().getWindow();
         stage.close();
     }
 }

@@ -9,13 +9,12 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
-public class Salariu {
+public class ProfitPoliclinica {
     @FXML
-    private Button anuleazaSA;
-
+    private Button anuleaza;
 
     @FXML
-    private Label salariu;
+    private Label profit;
 
     private int id;
 
@@ -23,23 +22,24 @@ public class Salariu {
         this.id = id;
     }
 
-    public void setUserSalariu(int id) throws SQLException
+    public void setUserProfit(int id) throws SQLException
     {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String Salariu = "call SelectSalariuAngajat(?)";
+        String Profit = "SELECT policlinici.Profit FROM policlinici JOIN utilizatori ON policlinici.ID_Policlinica = utilizatori.ID_Policlinica JOIN angajati ON angajati.ID_Utilizator = utilizatori.ID_Utilizator WHERE utilizatori.ID_Utilizator = ?;";
 
-        try (PreparedStatement preparedStatement = connectDB.prepareStatement(Salariu)) {
+        try (PreparedStatement preparedStatement = connectDB.prepareStatement(Profit)) {
+
             preparedStatement.setInt(1, id);
 
-            String userSalariu = null;
+            String userProfit = null;
             try (ResultSet result2 = preparedStatement.executeQuery()) {
 
                 while (result2.next()) {
-                    userSalariu = result2.getString("Salariu");
+                    userProfit = result2.getString("Profit");
                 }
-                salariu.setText(" " + userSalariu );
+                profit.setText(" " + userProfit );
             }
         }
         catch (Exception e) {
@@ -51,9 +51,9 @@ public class Salariu {
     public void setID(int id) {
     }
 
-    public void anuleazaSAOnAction(ActionEvent e)
+    public void anuleazaOnAction(ActionEvent e)
     {
-        Stage stage= (Stage)anuleazaSA.getScene().getWindow();
+        Stage stage= (Stage)anuleaza.getScene().getWindow();
         stage.close();
     }
 }

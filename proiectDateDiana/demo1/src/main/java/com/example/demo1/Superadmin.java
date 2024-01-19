@@ -130,9 +130,10 @@ public class Superadmin
 
     public void BSDSSUPADMINonAction(ActionEvent e)
     {
-        hideButtonBSDSSUPADMIN();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+       // hideButtonBSDSSUPADMIN();
+        //inapoiMeniuButton.setVisible(true);
+      //  inapoiButton.setVisible(false);
+        fereastraStergeDateSistem(id);
     }
 
     private void hideButtonBSDSSUPADMIN()
@@ -244,17 +245,55 @@ public class Superadmin
 
 
     public void BMDSSUPADMINOnAction(ActionEvent e)throws SQLException{
-        fereastraModificaDateSistem(id);
+        fereastraModificaDateSistem1(id);
+        fereastraModificaDateSistem2(id);
+        fereastraModificaDateSistem3(id);
     }
 
-    public void fereastraModificaDateSistem(int id){
+    public void fereastraModificaDateSistem1(int id){
         try{
             FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("modificadatesistem.fxml"));
             Scene scene = new Scene(date.load(), 480, 580);
             ModificaDateSistem d = date.getController();
             d.setID(id);
             Stage stageDate= new Stage();
-            stageDate.setTitle("Modifica Date Sistem ");
+            stageDate.setTitle("Modifica Admin, Hr, Economic, Receptioner ");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void fereastraModificaDateSistem2(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("modificadatesistemMedic.fxml"));
+            Scene scene = new Scene(date.load(), 700, 580);
+            ModificaDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Modifica Medic  ");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void fereastraModificaDateSistem3(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("modificadatesistemAsistent.fxml"));
+            Scene scene = new Scene(date.load(), 700, 580);
+            ModificaDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Modifica Asistent Medical ");
             stageDate.setScene(scene);
 
             stageDate.show();
@@ -283,4 +322,21 @@ public class Superadmin
         }
     }
 
+    public void fereastraStergeDateSistem(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("stergeDateSistem.fxml"));
+            Scene scene = new Scene(date.load(), 480, 300);
+            StergeDateSistem d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Sterge datele din sistem ");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 }

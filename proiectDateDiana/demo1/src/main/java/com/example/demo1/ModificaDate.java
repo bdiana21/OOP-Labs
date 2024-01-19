@@ -64,19 +64,6 @@ public class ModificaDate {
         modificadatele(id);
 
     }
-    public String numeNou(){
-        if(numeField.getText().isBlank()==false){
-            return numeField.getText();
-        }
-        else return null;
-    }
-
-    public String prenumeNou(){
-        if(prenumeField.getText().isBlank()==false){
-            return prenumeField.getText();
-        }
-        else return null;
-    }
 
     public void modificadatele(int id) throws SQLException{
         ok=0;

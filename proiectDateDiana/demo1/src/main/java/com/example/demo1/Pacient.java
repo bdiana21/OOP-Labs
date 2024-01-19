@@ -61,9 +61,9 @@ public class Pacient {
     }
     public void BMDPonAction(ActionEvent e)
     {
-      //  hideButtonBMDP();
-      //  inapoiMeniuButton.setVisible(true);
-    //    inapoiButton.setVisible(false);
+        //  hideButtonBMDP();
+        //  inapoiMeniuButton.setVisible(true);
+        //    inapoiButton.setVisible(false);
         fereastraModificaDate(id);
     }
 
@@ -77,9 +77,9 @@ public class Pacient {
     }
     public void BDPPonAction(ActionEvent e)
     {
-     //   hideButtonBMDP();
-      //  inapoiMeniuButton.setVisible(true);
-       // inapoiButton.setVisible(false);
+        //   hideButtonBMDP();
+        //  inapoiMeniuButton.setVisible(true);
+        // inapoiButton.setVisible(false);
         fereastraDatePersonale(id);
     }
 
@@ -112,9 +112,9 @@ public class Pacient {
 
     public void BRMPonAction(ActionEvent e)
     {
-        hideButtonBRMP();
-        inapoiMeniuButton.setVisible(true);
-        inapoiButton.setVisible(false);
+        //hideButtonBRMP();
+        // inapoiMeniuButton.setVisible(true);
+        // inapoiButton.setVisible(false);
         fereastraRapoartePacient(id);
     }
 

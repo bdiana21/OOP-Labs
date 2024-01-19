@@ -9,26 +9,25 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
-public class Salariu {
+public class SalariuPeOra {
     @FXML
-    private Button anuleazaSA;
+    private Button anuleaza;
 
 
     @FXML
-    private Label salariu;
+    private Label salariuPeOra;
 
     private int id;
-
-    public void setId(int id) {
+    public void setID(int id) {
         this.id = id;
     }
 
-    public void setUserSalariu(int id) throws SQLException
+    public void setUserSalariuPeOra(int id) throws SQLException
     {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String Salariu = "call SelectSalariuAngajat(?)";
+        String Salariu = "CALL CalculSalariuOra5(?)";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(Salariu)) {
             preparedStatement.setInt(1, id);
@@ -37,9 +36,9 @@ public class Salariu {
             try (ResultSet result2 = preparedStatement.executeQuery()) {
 
                 while (result2.next()) {
-                    userSalariu = result2.getString("Salariu");
+                    userSalariu = result2.getString("SalariuOra");
                 }
-                salariu.setText(" " + userSalariu );
+                salariuPeOra.setText(" " + userSalariu );
             }
         }
         catch (Exception e) {
@@ -48,12 +47,11 @@ public class Salariu {
 
     }
 
-    public void setID(int id) {
-    }
+
 
     public void anuleazaSAOnAction(ActionEvent e)
     {
-        Stage stage= (Stage)anuleazaSA.getScene().getWindow();
+        Stage stage= (Stage)anuleaza.getScene().getWindow();
         stage.close();
     }
 }

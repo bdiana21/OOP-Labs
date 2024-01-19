@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,13 +30,18 @@ public class RaportPacient {
     private TableColumn<DateRapoarte, String> continut;
 
     @FXML
+    private TableColumn<DateRapoarte, String> parafa;
+
+    @FXML
     private Button inapoiProgramari;
+
 
     @FXML
     private TableColumn<DateRapoarte, String> id_raport;
 
     @FXML
     private TableView<DateRapoarte> raportPacient;
+
 
     public void cancelButtonOnAction(ActionEvent e){
         Stage stage= (Stage) inapoiProgramari.getScene().getWindow();
@@ -47,6 +53,7 @@ public class RaportPacient {
         this.id=id;
         dateTabelRapoarte(id);
     }
+
     ObservableList<DateRapoarte> listR= FXCollections.observableArrayList();
 
     public void dateTabelRapoarte(int id) throws SQLException
@@ -54,11 +61,10 @@ public class RaportPacient {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "SELECT u.nume, u.prenume, r.Continut, r.ID_Raport\n" +
-                "FROM utilizatori u\n" +
-                "JOIN programari p ON u.ID_Utilizator = p.ID_Pacient\n" +
-                "JOIN rapoartemedicale r ON p.ID_Programare = r.ID_Programare\n" +
-                "WHERE u.ID_Utilizator = ?;\n";
+        String getData = "SELECT u.nume, u.prenume, r.Continut, r.ID_Raport FROM utilizatori u JOIN pacienti p ON u.ID_Utilizator = p.ID_Utilizator\n" +
+                "                JOIN programari prog ON prog.ID_Pacient=p.ID_Pacient\n" +
+                "                JOIN rapoartemedicale r ON prog.ID_Programare = r.ID_Programare\n" +
+                "                WHERE u.ID_Utilizator = ?;\n";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData))
         {
@@ -74,14 +80,16 @@ public class RaportPacient {
                     String userPrenume = result2.getString("Prenume");
                     String userContinut = result2.getString("Continut");
                     String userRaport= result2.getString("ID_Raport");
+                    String userParafa= result2.getString("ID_Raport");
 
-                    listR.add(new DateRapoarte(userNume, userPrenume, userContinut, userRaport));
+                    listR.add(new DateRapoarte(userNume, userPrenume, userContinut, userRaport,userParafa));
                 }
 
                 nume.setCellValueFactory(new PropertyValueFactory<>("nume"));
                 prenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
                 continut.setCellValueFactory(new PropertyValueFactory<>("continut"));
                 id_raport.setCellValueFactory(new PropertyValueFactory<>("raport"));
+
 
                 raportPacient.setItems(listR);
 
@@ -92,13 +100,7 @@ public class RaportPacient {
             }
         }
 
-        nume.setCellValueFactory(new PropertyValueFactory<>("nume"));
-        prenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
-        continut.setCellValueFactory(new PropertyValueFactory<>("continut"));
-        id_raport.setCellValueFactory(new PropertyValueFactory<>("raport"));
 
-        raportPacient.getItems().add(new DateRapoarte("Jarda", "Adina", "Pacientul a avut o consultatie in cardiologie, iar medicul a prescris tratament.", "8"));
     }
 
-    public void setId(int id) {}
 }

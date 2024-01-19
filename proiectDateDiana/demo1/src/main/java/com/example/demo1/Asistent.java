@@ -51,7 +51,7 @@ public class Asistent  {
     public void setUserData(ResultSet result) throws SQLException {
         userNume = result.getString("Nume");
         userPrenume = result.getString("Prenume");
-        numeLabel.setText(userNume+" "+userPrenume);
+        numeLabel.setText("   " + userNume+" "+userPrenume);
         setId(result.getInt("ID_Utilizator"));
     }
     public void BGRUDPAOnAction(ActionEvent e)throws SQLException{

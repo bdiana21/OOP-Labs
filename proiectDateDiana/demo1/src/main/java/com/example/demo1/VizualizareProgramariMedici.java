@@ -37,7 +37,8 @@ public class VizualizareProgramariMedici {
 
     @FXML
     private TableColumn<DateProgramari, String> ora;
-
+    @FXML
+    private TableColumn<DateProgramari, String>medic;
 
 
     public void cancelButtonOnAction(ActionEvent e){
@@ -57,7 +58,12 @@ public class VizualizareProgramariMedici {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "SELECT u_pacient.nume, u_pacient.prenume , p.Data_Programare, p.Ora_Programare FROM utilizatori u_medic JOIN programari p ON u_medic.ID_Utilizator = p.ID_Medic JOIN utilizatori u_pacient ON p.ID_Pacient = u_pacient.ID_Utilizator WHERE u_medic.ID_Utilizator = ?";
+        String getData = " SELECT u.nume, u.prenume, prog.Data_Programare, prog.Ora_Programare, prog.ID_Medic \n" +
+                "FROM programari prog JOIN pacienti p ON p.ID_Pacient=prog.ID_Pacient\n" +
+                "JOIN utilizatori u on p.ID_Utilizator=u.ID_Utilizator\n" +
+                "Join medici m on prog.ID_Medic=m.ID_Medic\n" +
+                "JOIN angajati a on a.ID_Angajat=m.ID_Angajat\n" +
+                "WHERE a.ID_Utilizator=?";
 
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
@@ -71,14 +77,15 @@ public class VizualizareProgramariMedici {
                         String userPrenume = result2.getString("Prenume");
                         String userData = result2.getString("Data_Programare");
                         String userOra = result2.getString("Ora_Programare");
-                        listP.add(new DateProgramari(userNume, userPrenume, userData, userOra));
+                        String userMedic = result2.getString("ID_Medic");
+                        listP.add(new DateProgramari(userNume, userPrenume, userData, userOra,userMedic));
                     }
 
                     nume.setCellValueFactory(new PropertyValueFactory<>("nume"));
                     prenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
                     data.setCellValueFactory(new PropertyValueFactory<>("data"));
                     ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
-
+                    medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
 
                     tabelProgramariMedici.setItems(listP);
 

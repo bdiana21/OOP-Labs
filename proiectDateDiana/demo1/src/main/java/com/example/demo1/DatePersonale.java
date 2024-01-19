@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class DatePersonale {
     private int id;
     public void setID(int id) throws SQLException {
-         this.id=id;
+        this.id=id;
         dateTabel(id);
     }
 
@@ -61,7 +61,7 @@ public class DatePersonale {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "select Nume, Prenume, CNP, rol_user, Email, Adresa, Telefon, Cont_IBAN, Numar_Contract, Data_Angajarii from utilizatori where ID_Utilizator=?";
+        String getData = "call SelectUtilizator(?)";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
             preparedStatement.setInt(1, id); // Setăm valoarea pentru parametrul ID_Utilizator

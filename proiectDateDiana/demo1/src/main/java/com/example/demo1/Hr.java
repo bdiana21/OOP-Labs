@@ -60,7 +60,7 @@ public class Hr {
         inapoiButton.setVisible(true);
     }
 
-   public void initialize()
+    public void initialize()
     {
         hideButtonBGRU();
         hideButtonOFC();

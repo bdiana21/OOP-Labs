@@ -40,6 +40,8 @@ public class Medic {
     @FXML
     private Button inapoiMeniuButton;
     @FXML
+    private Button salariuOra;
+    @FXML
     public Label numeLabel;
 
     private int id;
@@ -107,6 +109,7 @@ public class Medic {
         BOFCPPM.setVisible(isBOFCPressed);
         BOFCPAPM.setVisible(isBOFCPressed);
         BOFCSM.setVisible(isBOFCPressed);
+        salariuOra.setVisible(isBOFCPressed);
         BGRU.setVisible(!isBOFCPressed);
         BGAO.setVisible(!isBOFCPressed);
     }
@@ -199,7 +202,7 @@ public class Medic {
     public void fereastraProgramari(int id){
         try{
             FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("vizualizareprogramariMedici.fxml"));
-            Scene scene = new Scene(date.load(), 600, 350);
+            Scene scene = new Scene(date.load(), 600, 370);
             VizualizareProgramariMedici d = date.getController();
             d.setID(id);
             Stage stageDate= new Stage();
@@ -230,6 +233,75 @@ public class Medic {
             stageDate.show();
 
         } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void BOFCPPMOnAction(ActionEvent e)throws SQLException{
+        fereastraProfitMedic(id);
+    }
+
+    public void fereastraProfitMedic(int id) {
+        try {
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("profitMedic.fxml"));
+            Scene scene = new Scene(date.load(), 488, 308);
+            ProfitMedic d = date.getController();
+            d.setID(id);
+            d.setUserProfitMedic(id);
+            Stage stageDate = new Stage();
+            stageDate.setTitle("Profit personal");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void BOFCPAPMOnAction(ActionEvent e)throws SQLException{
+        fereastraProfitAdus(id);
+    }
+
+    public void fereastraProfitAdus(int id) {
+        try {
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("profitAdus.fxml"));
+            Scene scene = new Scene(date.load(), 488, 308);
+            ProfitAdus d = date.getController();
+            d.setId(id);
+            d.setUserProfitAdus(id);
+            Stage stageDate = new Stage();
+            stageDate.setTitle("Profit adus policlinicii");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void salariuOraOnAction(ActionEvent e)throws SQLException{
+        fereastraSlariuPeOra(id);
+    }
+
+    public void fereastraSlariuPeOra(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("salariuPeOra.fxml"));
+            Scene scene = new Scene(date.load(), 490, 280);
+            SalariuPeOra d = date.getController();
+            d.setID(id);
+            d.setUserSalariuPeOra(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Profitul pe ora");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
             e.printStackTrace();
             e.getCause();
         }

@@ -2,13 +2,14 @@ package com.example.demo1;
 
 public class DateRapoarte
 {
-    String nume, prenume, continut, raport;
+    String nume, prenume, continut, raport,parafa;
 
-    public DateRapoarte(String nume, String prenume, String continut, String raport) {
+    public DateRapoarte(String nume, String prenume, String continut, String raport, String parafa) {
         this.nume = nume;
         this.prenume = prenume;
         this.continut = continut;
         this.raport = raport;
+        this.parafa=parafa;
     }
 
     public void setNume(String nume) {
@@ -41,5 +42,13 @@ public class DateRapoarte
 
     public String getRaport() {
         return raport;
+    }
+
+    public String getParafa() {
+        return parafa;
+    }
+
+    public void setParafa(String parafa) {
+        this.parafa = parafa;
     }
 }

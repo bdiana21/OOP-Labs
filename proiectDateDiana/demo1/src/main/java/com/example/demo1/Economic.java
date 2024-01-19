@@ -101,8 +101,6 @@ public class Economic {
         boolean isBOFCPressed = BOFC.isArmed() || BOFC.isPressed();
 
         BOFCVSAECO.setVisible(isBOFCPressed);
-        BOFCCSMECO.setVisible(isBOFCPressed);
-        BOFCCSOECO.setVisible(isBOFCPressed);
         BOFCPPECO1.setVisible(isBOFCPressed);
         BOFCVSE.setVisible(isBOFCPressed);
         BGRU.setVisible(!isBOFCPressed);
@@ -191,4 +189,28 @@ public class Economic {
             e.getCause();
         }
     }
+
+    public void BOFCPPECO1OnAction(ActionEvent e)throws SQLException{
+        fereastraProfit(id);
+    }
+
+    public void fereastraProfit(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("profitPoliclinica.fxml"));
+            Scene scene = new Scene(date.load(), 488, 308);
+            ProfitPoliclinica d = date.getController();
+            d.setID(id);
+            d.setUserProfit(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Profit policlinca");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
 }

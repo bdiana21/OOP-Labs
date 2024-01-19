@@ -57,10 +57,11 @@ public class VizualizareProgramari
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "SELECT u.nume, u.prenume, p.Data_Programare, p.Ora_Programare, p.ID_Medic\n" +
-                "FROM utilizatori u\n" +
-                "JOIN programari p ON u.ID_Utilizator = p.ID_Pacient\n" +
-                "WHERE u.ID_Utilizator = ?;\n";
+        String getData = "SELECT u.nume, u.prenume, prog.Data_Programare, prog.Ora_Programare, prog.ID_Medic\n" +
+                "                FROM utilizatori u\n" +
+                "                JOIN pacienti p ON u.ID_Utilizator = p.ID_Utilizator\n" +
+                "                JOIN programari prog ON p.ID_Pacient = prog.ID_Pacient\n" +
+                "                WHERE u.ID_Utilizator = ?;\n";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
             preparedStatement.setInt(1, id); // Setăm valoarea pentru parametrul ID_Utilizator
@@ -74,14 +75,14 @@ public class VizualizareProgramari
                     String userData = result2.getString("Data_Programare");
                     String userOra = result2.getString("Ora_Programare");
                     String userMedic = result2.getString("ID_Medic");
-                    listP.add(new DateProgramari(userNume, userPrenume, userData, userOra));
+                    listP.add(new DateProgramari(userNume, userPrenume, userData, userOra,userMedic));
                 }
 
                 tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
                 tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
                 data.setCellValueFactory(new PropertyValueFactory<>("data"));
                 ora.setCellValueFactory(new PropertyValueFactory<>("ora"));
-               // medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
+                medic.setCellValueFactory(new PropertyValueFactory<>("medic"));
 
 
                 tabelProgramari.setItems(listP);

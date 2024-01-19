@@ -61,14 +61,14 @@ public class ProgramareNoua
                 ora.getText().isBlank()==false && idMedic.getText().isBlank()==false && serviciu.getText().isBlank()==false){
             DatabaseConnection connectNow = new DatabaseConnection();
             Connection connectDB = connectNow.getConnection();
-            String addDataBon ="INSERT INTO programari (ID_Programare, Data_Programare, Ora_Programare, ID_Serviciu, ID_Medic) VALUES(?,?,?,?,?)";
+            String addDataBon ="INSERT INTO programari (ID_Programare,ID_Pacient, Data_Programare, Ora_Programare, ID_Serviciu, ID_Medic) VALUES(?,?,?,?,?,?)";
             try (PreparedStatement preparedStatement = connectDB.prepareStatement(addDataBon)) {
                 preparedStatement.setInt(1, Integer.parseInt(idProgramare.getText()));
-           //     preparedStatement.setInt(2, Integer.parseInt(idPacient.getText()));
-                preparedStatement.setString(2, data.getText());
-                preparedStatement.setInt(3, Integer.parseInt(ora.getText()));
-                preparedStatement.setInt(4, Integer.parseInt(serviciu.getText()));
-                preparedStatement.setInt(5, Integer.parseInt(idMedic.getText()));
+                preparedStatement.setInt(2, Integer.parseInt(idPacient.getText()));
+                preparedStatement.setString(3, data.getText());
+                preparedStatement.setInt(4, Integer.parseInt(ora.getText()));
+                preparedStatement.setInt(5, Integer.parseInt(serviciu.getText()));
+                preparedStatement.setInt(6, Integer.parseInt(idMedic.getText()));
                 preparedStatement.executeUpdate();
                 ok=1;
             }

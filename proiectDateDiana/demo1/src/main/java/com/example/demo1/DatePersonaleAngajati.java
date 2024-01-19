@@ -56,11 +56,11 @@ public class DatePersonaleAngajati {
 
     ObservableList<DateAngajati> listA= FXCollections.observableArrayList();
 
-   public void dateTabel(int id) throws SQLException {
+    public void dateTabel(int id) throws SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String getData = "select Nume, Prenume, CNP, rol_user, Email, Adresa, Telefon, Cont_IBAN, Numar_Contract, Data_Angajarii from utilizatori where ID_Utilizator=?";
+        String getData ="CALL SelectUtilizator(?)";
 
         try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
 
